@@ -30,7 +30,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='[http://i.imgur.com/link/to/your/gif/file.gif](https://submissions.us-east-1.linodeobjects.com/metau_android/7msvy1Fb.gif)' title='Flixster Walkthrough' width='' alt='Flixster Walkthrough' />
+<img src='https://github.com/likitag/Flixster-app/raw/master/flixster_walkthrough.gif' title='Flixster Walkthrough' width='250' alt='Flixster Walkthrough' />
 
 
 ## Notes

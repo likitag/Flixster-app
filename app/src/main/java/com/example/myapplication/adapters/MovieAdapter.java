@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.example.myapplication.Movie;
 import com.example.myapplication.MovieDetailsActivity;
 import com.example.myapplication.R;
@@ -76,18 +77,26 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
             //Glide.with(context).load(movie.getPosterPath()).placeholder(R.drawable.movie_placeholder).into(ivPoster);
 
             String imageUrl;
+            int radius = 30; // corner radius, higher value = more rounded
+
 
             if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
                 imageUrl = movie.getBackdropPath();
-                Glide.with(context).load(movie.getPosterPath()).placeholder(R.drawable.backdrop_placeholder).into(ivPoster);
+                Glide.with(context).load(movie.getPosterPath()).placeholder(R.drawable.backdrop_placeholder).centerCrop().transform(new RoundedCorners(radius)).into(ivPoster);
 
             }
             else {
                 imageUrl = movie.getPosterPath();
-                Glide.with(context).load(movie.getPosterPath()).placeholder(R.drawable.movie_placeholder).into(ivPoster);
+                Glide.with(context)
+                        .load(movie.getPosterPath())
+                        .placeholder(R.drawable.movie_placeholder)
+                        .centerCrop()
+                        .transform(new RoundedCorners(radius))
+                        .override(200, 300)
+                        .into(ivPoster);
             }
             //if phone in landscape set image url to backdrop, else poster image
-            Glide.with(context).load(imageUrl).into(ivPoster);
+            //Glide.with(context).load(imageUrl).into(ivPoster);
         }
 
         @Override
